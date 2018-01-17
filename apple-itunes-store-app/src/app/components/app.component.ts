@@ -4,7 +4,6 @@ import { ItunesService } from '../services/ItunesService';
 import { ItunesSearchResponse } from '../services/ItunesSearchResponse';
 import { TrackDetails } from '../services/TrackDetails';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbdModalCustomclass} from '../components/app.modal';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +11,8 @@ import {NgbdModalCustomclass} from '../components/app.modal';
   styleUrls: ['../app.component.css'],
   providers: [ItunesService]
 })
+
+
 export class MyComponent {
   name: String;
   address: Address;
@@ -19,7 +20,6 @@ export class MyComponent {
   posts: ItunesSearchResponse;
   results: TrackDetails[];
   searchKey: string;
-  title: "New App";
 
   constructor(private itunesService: ItunesService){
     this.name = "Manish Singh";

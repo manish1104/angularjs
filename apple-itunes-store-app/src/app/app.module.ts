@@ -3,20 +3,17 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 import { MyComponent } from './components/app.component';
-import { NgbdModalCustomclass } from './components/app.modal'
-
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
-    MyComponent,
-    NgbdModalCustomclass
+    MyComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, NgbModule.forRoot()
   ],
   providers: [],
-  bootstrap: [MyComponent, NgbdModalCustomclass]
+  bootstrap: [MyComponent]
 })
 export class AppModule { }

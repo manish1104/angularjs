@@ -1,23 +1,18 @@
-import {Injectable} from '@angular/core'
-import {Http} from '@angular/http';
+import { Injectable } from '@angular/core'
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { ItunesSearchResponse } from './ItunesSearchResponse';
-
+import { AppSettings } from '../AppSettings';
 @Injectable()
-export class ItunesService{
+export class ItunesService {
 
-    constructor(private http: Http){
-        console.log('ItunesService Initialized... ');
-    }
+        constructor(private http: Http) {
+                console.log('ItunesService Initialized... ');
+        }
 
-    getPosts(){
-    return this.http.get("https://itunes.apple.com/search?term=rahman")
-            .map(res => res.json());
-    }
-
-    getPost(searchKey: string){
-        return this.http.get("https://itunes.apple.com/search?term=" + searchKey + "&limit=1000&entity=movie")
-                .map(res => res.json());
+        getPost(searchKey: string) {
+                return this.http.get(AppSettings.ITUNES_SEARCH_API + "?term=" + searchKey + "&limit=1000")
+                        .map(res => res.json());
         }
 
 }

@@ -1,4 +1,4 @@
-.md-button {
+.my-class1 {
     padding: 0 6px 0 6px;
     margin: 6px 8px 6px 8px;
     min-width: 88px;
@@ -9,4 +9,4 @@
     text-decoration:none;
     border: none;
     outline: none;
-  }
+}

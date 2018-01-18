@@ -3,15 +3,14 @@ import { Address } from '../components/address';
 import { ItunesService } from '../services/ItunesService';
 import { ItunesSearchResponse } from '../services/ItunesSearchResponse';
 import { TrackDetails } from '../services/TrackDetails';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
   templateUrl: '../components/app.component.html',
-  styleUrls: ['../app.component.css'],
+  styleUrls: ['../components/app.component.css'],
   providers: [ItunesService]
 })
-
 
 export class MyComponent {
   name: String;
@@ -21,7 +20,7 @@ export class MyComponent {
   results: TrackDetails[];
   searchKey: string;
 
-  constructor(private itunesService: ItunesService){
+  constructor(private itunesService: ItunesService) {
     this.name = "Manish Singh";
     this.address = {
       name: '56, Kailashpuri',
@@ -31,20 +30,26 @@ export class MyComponent {
     this.showAddress = false;
   }
 
-  toggleAddress(){
-    this.showAddress == false? this.showAddress = true: this.showAddress = false;
+  toggleAddress() {
+    this.showAddress == false ? this.showAddress = true : this.showAddress = false;
   }
 
-  search(){
+  search() {
     console.log("searching for key " + this.searchKey);
-    this.itunesService.getPost(this.searchKey).subscribe(posts => {
-      this.posts = posts;
-      this.results= posts["results"];
-      console.log(JSON.stringify(this.results));  
-    })
+
+    if (this.searchKey != null) {
+      this.itunesService.getPost(this.searchKey).subscribe(posts => {
+        this.posts = posts;
+        this.results = posts["results"];
+        console.log(JSON.stringify(this.results));
+      })
+    }else{
+      alert('Put in some text in search box.')
+    }
+
   }
 
-  showItunesResponse(){
+  showItunesResponse() {
     let trackDetails: TrackDetails[];
     trackDetails = this.posts["results"];
 
